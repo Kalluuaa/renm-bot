@@ -1,23 +1,25 @@
 
 {
 
-    "name": "Rename Bot",
+    "name": "Gangster Baby Renamer Bot",
 
-    "description": "Telegram File Rename Bot 4GB ",
+    "description": "Telegram File Renamer Bot 4GB ",
 
     "keywords": [
 
-        "Renamer ",
+        "Gangster Baby Renamer Bot ",
 
         "4GB File",
 
-        "telegram"
+        "telegram",
+        
+        "@Zenitsu_AF"
 
     ],
 
-    "repository": "https://github.com/Nobideveloper/Rename-Bot",
+    "repository": "",
 
-    "success_url": "https://telegram.me/NobiDeveloper",
+    "success_url": "https://t.me/Anime_Sensei_Network",
 
     "env": {
 
@@ -33,7 +35,7 @@
 
         "STRING": {
 
-            "description": "Use Pyrogram String Session",
+            "description": "Pyrogram String Session Use  @genStr_Bot",
 
             "required": true
 
@@ -91,16 +93,14 @@
 
              "required": true
 
-         },
-        
+        },
         "LAZY_PIC":{
 
             "description":"Start up pic of your bot. Get from telegraph_Bot",
 
             "required": true
 
-
-        }
+       }
 
         
 
