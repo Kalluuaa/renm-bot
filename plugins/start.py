@@ -1,24 +1,32 @@
+from datetime import date as date_
+import datetime
 import os
 from pyrogram.errors.exceptions.bad_request_400 import UserNotParticipant
 import time
 from pyrogram import Client, filters
-from pyrogram.types import ( InlineKeyboardButton, InlineKeyboardMarkup,ForceReply)
+from pyrogram.types import (
+    InlineKeyboardButton, InlineKeyboardMarkup)
 import humanize
 from helper.progress import humanbytes
 
-from helper.database import  insert ,find_one,used_limit,usertype,uploadlimit,addpredata,total_rename,total_size
+from helper.database import insert, find_one, used_limit, usertype, uploadlimit, addpredata, total_rename, total_size
 from pyrogram.file_id import FileId
 from helper.database import daily as daily_
-from helper.date import add_date ,check_expi
-CHANNEL = os.environ.get('CHANNEL',"")
-import datetime
-from datetime import date as date_
-STRING = os.environ.get("STRING","")
-log_channel = int(os.environ.get("LOG_CHANNEL",""))
-token = os.environ.get('TOKEN','')
-botid = token.split(':')[0]
+from helper.date import check_expi
+import os
 
-#Part of Day --------------------
+CHANNEL = os.environ.get('CHANNEL', "")
+STRING = os.environ.get("STRING", "")
+ADMIN = int(os.environ.get("ADMIN", 6430525233))
+bot_username = os.environ.get("BOT_USERNAME","Public_renamebot")
+log_channel = int(os.environ.get("LOG_CHANNEL", "-1002072415415"))
+token = os.environ.get('TOKEN', '')
+botid = token.split(':')[0]
+FLOOD = 500
+LAZY_PIC = os.environ.get("LAZY_PIC", "")
+
+
+# Part of Day --------------------
 currentTime = datetime.datetime.now()
 
 if currentTime.hour < 12:
@@ -28,8 +36,9 @@ elif 12 <= currentTime.hour < 12:
 else:
     wish = ' Gᴏᴏᴅ ᴇᴠᴇɴɪɴɢ ʙᴀʙʏ ⛄️'
 
-#-------------------------------
-	    
+# -------------------------------
+
+
 @Client.on_message(filters.private & filters.command(["start"]))
 async def start(client, message):
     old = insert(int(message.chat.id))
